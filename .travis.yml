@@ -7,5 +7,5 @@ script: "nvcc thrust_sort/example.cuda"
 
 before_script:
   - sudo apt-get update -qq
-  - sudo apt-get install -qq build-essential linux-headers-$(uname -r)
+  - sudo apt-get install -qq build-essential
   - sudo apt-get install -qq nvidia-cuda-toolkit nvidia-cuda-dev
