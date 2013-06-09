@@ -5,6 +5,7 @@ compiler:
 
 script:
   - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nvidia-current:/usr/lib/x86_64-linux-gnu
+  - echo $LD_LIBRARY_PATH
   - nvcc -ccbin ~/gcc-4.4/ -lcuda -lcudart cuda_mandelbrot/mandelbrot.cu -o mandelbrot.o
   - nvcc -ccbin ~/gcc-4.4/ -lcuda -lcudart thrust_sort/example.cu -o thrustsort.o
 
