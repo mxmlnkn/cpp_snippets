@@ -3,7 +3,7 @@ language: cpp
 compiler:
   - gcc
 
-script: "nvcc -ccbin ~/gcc-4.4/ -lcuda -lcudart cuda_mandelbrot/mandelbrot.cu -L/usr/lib/nvidia-current/ -L/usr/lib/x86_64-linux-gnu/"
+script: "nvcc -ccbin ~/gcc-4.4/ -lcuda -lcudart cuda_mandelbrot/mandelbrot.cu -o mandelbrot.o -L/usr/lib/nvidia-current -L/usr/lib/x86_64-linux-gnu"
 
 before_script:
   - sudo apt-get update -qq
@@ -16,3 +16,9 @@ before_script:
   - sudo find /usr/ -name libcuda*.so
   - mkdir ~/gcc-4.4
   - cd ~/gcc-4.4 && ln -s /usr/bin/g++-4.4 g++ && ln -s /usr/bin/gcc-4.4 gcc && cd -
+
+after_script:
+  - ./mandelbrot.o > mandelbrot.log
+  - head -n 3 mandelbrot.log
+  - echo "..."
+  - tail -n 3 mandelbrot.log
