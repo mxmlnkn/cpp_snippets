@@ -3,7 +3,7 @@ language: cpp
 compiler:
   - gcc
 
-script: "nvcc thrust_sort/example.cuda"
+script: "nvcc thrust_sort/example.cu"
 
 before_script:
   - sudo apt-get update -qq
