@@ -9,9 +9,10 @@ before_script:
   - sudo apt-get update -qq
   - sudo apt-get install -qq build-essential
   - sudo apt-get install -qq gcc-4.4
-  - sudo apt-get install -qq nvidia-glx
+  - sudo apt-get install -qq nvidia-common
   - sudo apt-get install -qq nvidia-cuda-toolkit nvidia-cuda-dev
   - sudo apt-get install -qq libthrust-dev
   - sudo find /usr/ -name libcuda*.so
+  - sudo nvidia-smi
   - mkdir ~/gcc-4.4
   - cd ~/gcc-4.4 && ln -s /usr/bin/g++-4.4 g++ && ln -s /usr/bin/gcc-4.4 gcc && cd -
