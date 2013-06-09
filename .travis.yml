@@ -3,7 +3,7 @@ language: cpp
 compiler:
   - gcc
 
-script: "nvcc -ccbin ~/gcc-4.4/ thrust_sort/example.cu"
+script: "nvcc -ccbin ~/gcc-4.4/ cuda_mandelbrot/mandelbrot.cu"
 
 before_script:
   - sudo apt-get update -qq
