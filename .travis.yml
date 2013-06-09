@@ -4,9 +4,9 @@ compiler:
   - gcc
 
 script:
-  - alias nvcc="nvcc -ccbin ~/gcc-4.4/ -L/usr/lib/nvidia-current -L/usr/lib/x86_64-linux-gnu"
-  - nvcc -lcuda -lcudart cuda_mandelbrot/mandelbrot.cu -o mandelbrot.o
-  - nvcc -lcuda -lcudart thrust_sort/example.cu -o thrustsort.o
+  - alias nvcc='nvcc -ccbin ~/gcc-4.4/'
+  - nvcc -lcuda -lcudart cuda_mandelbrot/mandelbrot.cu -o mandelbrot.o -L/usr/lib/nvidia-current -L/usr/lib/x86_64-linux-gnu
+  - nvcc -lcuda -lcudart thrust_sort/example.cu -o thrustsort.o -L/usr/lib/nvidia-current -L/usr/lib/x86_64-linux-gnu
 
 before_script:
   - sudo apt-get update -qq
