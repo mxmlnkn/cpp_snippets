@@ -3,7 +3,7 @@ language: cpp
 compiler:
   - gcc
 
-script: "nvcc -ccbin ~/gcc-4.4/ -lcuda -lcudart cuda_mandelbrot/mandelbrot.cu -L/usr/lib32/nvidia-current/ -L/usr/lib/nvidia-current/ -L/usr/lib/x86_64-linux-gnu/"
+script: "nvcc -ccbin ~/gcc-4.4/ -lcuda -lcudart cuda_mandelbrot/mandelbrot.cu -L/usr/lib/nvidia-current/ -L/usr/lib/x86_64-linux-gnu/"
 
 before_script:
   - sudo apt-get update -qq
