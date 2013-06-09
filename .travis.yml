@@ -11,6 +11,7 @@ before_script:
   - sudo apt-get install -qq gcc-4.4
   - sudo apt-get install -qq nvidia-cuda-toolkit nvidia-cuda-dev
   - sudo apt-get install -qq libthrust-dev
-  - sudo ls /usr/local/cuda*
+  - sudo locate libcuda.so
+  - sudo locate libcudart.so
   - mkdir ~/gcc-4.4
   - cd ~/gcc-4.4 && ln -s /usr/bin/g++-4.4 g++ && ln -s /usr/bin/gcc-4.4 gcc && cd -
