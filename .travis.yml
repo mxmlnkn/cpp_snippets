@@ -3,7 +3,9 @@ language: cpp
 compiler:
   - gcc
 
-script: "nvcc -ccbin ~/gcc-4.4/ -lcuda -lcudart cuda_mandelbrot/mandelbrot.cu -o mandelbrot.o -L/usr/lib/nvidia-current -L/usr/lib/x86_64-linux-gnu"
+script:
+  - nvcc -ccbin ~/gcc-4.4/ -lcuda -lcudart cuda_mandelbrot/mandelbrot.cu -o mandelbrot.o
+  - nvcc -ccbin ~/gcc-4.4/ -lcuda -lcudart thrust_sort/example.cu -o thrustsort.o
 
 before_script:
   - sudo apt-get update -qq
@@ -13,12 +15,15 @@ before_script:
   - sudo apt-get install -qq nvidia-current
   - sudo apt-get install -qq nvidia-cuda-toolkit nvidia-cuda-dev
   - sudo apt-get install -qq libthrust-dev
+  - nvidia-smi
   - sudo find /usr/ -name libcuda*.so
   - mkdir ~/gcc-4.4
   - cd ~/gcc-4.4 && ln -s /usr/bin/g++-4.4 g++ && ln -s /usr/bin/gcc-4.4 gcc && cd -
+  - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nvidia-current:/usr/lib/x86_64-linux-gnu
 
 after_script:
-  - ./mandelbrot.o > mandelbrot.log
-  - head -n 3 mandelbrot.log
+  - ./mandelbrot.o
+  - ./thrustsort.o > thrustsort.log
+  - head -n 3 thrustsort.log
   - echo "..."
-  - tail -n 3 mandelbrot.log
+  - tail -n 3 thrustsort.log
