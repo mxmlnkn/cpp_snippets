@@ -1,7 +1,7 @@
 ### Basic Makefile for MPI
 
 CC      = mpicc
-CFLAGS  = -g -O0
+CFLAGS  = -g -O0 -std=gnu99
 LD      = mpicc
 LDFLAGS = -g
 
@@ -20,3 +20,5 @@ clean:
 
 #Results in: mpicc -g -O0 -c mp_test.c -o mpi_test.o
 #            mpicc -g mp_test.o -o mpi_test.exe
+
+#ToDo: correct distance with cell distance!
