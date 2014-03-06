@@ -1,7 +1,7 @@
 ### Basic Makefile for MPI
 
 CC      = mpicc
-CFLAGS  = -g -O0
+CFLAGS  = -g -O0 -std=c99
 LD      = mpicc
 LDFLAGS = -g
 
