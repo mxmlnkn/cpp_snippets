@@ -2,16 +2,23 @@
 *.slo
 *.lo
 *.o
-*.out
+*.obj
 
 # Compiled Dynamic libraries
 *.so
 *.dylib
+*.dll
 
 # Compiled Static libraries
 *.lai
 *.la
 *.a
+*.lib
 
-# tmp files
-*.*~
+# Executables
+*.exe
+*.out
+*.app
+
+#Visual Studio compile files
+*.exp
