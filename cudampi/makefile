@@ -12,9 +12,6 @@ MPI_LFLAGS = $(shell mpicc --showme:link)
 PROGRAM  = md5cuda
 #MPI_ROOT only needed if mpi and cuda in same sourcefile, else the two objects can be linked
 ifeq ($(OS),Windows_NT)
-	IF EXIST %VS110COMNTOOLS% (
-		CALL "%VS110COMNTOOLS%\vsvars32.bat"
-	)
 	MPI_ROOT = 
 	NCFLAGS += -m32
 	MCFLAGS += -m32
